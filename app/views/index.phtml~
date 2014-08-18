@@ -1,0 +1,17 @@
+<?php  echo Phalcon\Tag::form('session/start') ?>
+  <label for="user_name">Username</label>
+  <?php echo Phalcon\Tag::textField(array("user_name", "size" => "30")) ?>
+
+  <label for="password">Password</label>
+  <?php echo Phalcon\Tag::passwordField(array("password", "size" => "30")) ?>
+
+  <?php echo Phalcon\Tag::submitButton(array('Login')) ?>
+
+</form>
+
+<!DOCTYPE html>
+<html>
+   <head>
+   <?php echo  Phalcon\Tag::getTitle() ?>
+   </head>
+</html>
