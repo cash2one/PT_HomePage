@@ -1,0 +1,68 @@
+<?php
+final class BootLoader
+{
+    protected $config      = null;
+    protected $di          = null;
+    protected $application = null;
+    protected $loader      = null;
+
+    public function __construct()
+    {
+	    define("PUBLIC_DIR", dirname(__DIR__));
+	    define("HOME_DIR", realpath(".."));
+    }
+
+    public function default_load()
+    {
+       $this->config = new Phalcon\Config\Adapter\Ini(HOME_DIR.'/app/conf/config.ini');
+       $this->loader = new \Phalcon\Loader();
+       $this->loader->registerDirs(
+	       array(
+           '../../app/controllers/',
+           HOME_DIR . $this->config->application->controllersDir,
+           HOME_DIR . $this->config->application->modelsDir,
+           HOME_DIR . $this->config->application->pluginsDir,
+           HOME_DIR . $this->config->application->libraryDir
+           )
+       )->register();
+       
+       $this->loader->registerNamespaces(
+	        array(
+			"Phalcon"                => PUBLIC_DIR."/library/Phalcon/",
+		))->register();
+
+       $this->di     = new \Phalcon\DI\FactoryDefault();
+       $this->di->set('db', function() {
+           return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
+                "host" => $this->config->database->host,
+                "port" => $this->config->database->port,
+                "username" => $this->config->database->username,
+                "password" => $this->config->database->password,
+                "dbname" => $this->config->database->name
+            ));
+       });
+
+       $this->di->set('view', function()  {
+	        $view = new \Phalcon\Mvc\View();
+		require_once PUBLIC_DIR.'/plugins/Smarty/libs/Smarty.class.php';
+		$view->setViewsDir(__DIR__.'/views/');
+		$view->registerEngines(array(
+			".tpl" => '\Phalcon\Mvc\View\Engine\Smarty'
+		));
+		 return $view;
+       });
+       $this->application = new \Phalcon\Mvc\Application();
+       $this->application->setDI($this->di);
+
+       echo $this->application->handle()->getContent();
+    }
+}
+ 
+ 
+
+
+
+
+
+
+?>

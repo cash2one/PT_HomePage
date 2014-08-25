@@ -1,14 +1,14 @@
 <?php
 
 $config = new Phalcon\Config\Adapter\Ini(__DIR__.'/../app/conf/config.ini');
-
+ define("HOME_DIR", realpath(".."));
 $loader = new \Phalcon\Loader();
 $loader->registerDirs(
 	array(
-		__DIR__.$config->application->controllersDir,
-		__DIR__.$config->application->pluginsDir,
-		__DIR__.$config->application->libraryDir,
-		__DIR__.$config->application->modelsDir,
+		HOME_DIR.$config->application->controllersDir,
+		HOME_DIR.$config->application->pluginsDir,
+		HOME_DIR.$config->application->libraryDir,
+		HOME_DIR.$config->application->modelsDir,
 	)
 )->register();
 
@@ -29,28 +29,6 @@ $di->set('dispatcher', function() use ($di) {
  */
 
 
-//Start the session the first time when some component request the session service
-$di->set('session', function(){
-     $session = new Phalcon\Session\Adapter\Files();
-     $session->start();
-     return $session;
-});
-
-$di->setShared('session',function() {
-	$session = new Phalcon\Session\Adapter\Files();
-	$session->start();
-	return $session;
-});
- 
-//Register the flash service with custom CSS classes
-$di->set('flash', function(){
-	return new Phalcon\Flash\Direct();
-		//(array(
-//		'error' => 'alert alert-error',
-//		'success' => 'alert alert-success',
-//		'notice' => 'alert alert-info',
-//	));
-});
  
 
 // Database connection is created based in the parameters defined in the configuration file
@@ -67,7 +45,11 @@ $di->set('db', function() use ($config) {
 //Setting up the view component
 $di->set('view', function(){
 	$view = new \Phalcon\Mvc\View();
-	$view->setViewsDir('../app/views/');
+//	require_once dirname(__DIR__) .'/public/plugins/Smarty/libs/Smarty.class.php';
+	$view->setViewsDir(__DIR__.'/app/views/');
+//	$view->registerEngines(array(
+//		".tpl" => '\Phalcon\Mvc\View\Engine\Smarty'
+///	));
 	return $view;
 });
 
@@ -77,12 +59,12 @@ $application->setDI($di);
 echo $application->handle()->getContent();
 
 //print the services
-/*
+
 $services = $application->getDI()->getServices();
 foreach($services as $key => $service) {
 	        var_dump($key);
 		var_dump(get_class($application->getDI()->get($key)));
      }
 exit();
- */
+ 
 ?>
