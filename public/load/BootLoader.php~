@@ -57,7 +57,8 @@ final class BootLoader
 		$view->setViewsDir(HOME_DIR.'/app/views/');
 <<<<<<< HEAD
 		$view->registerEngines(array(
-			".tpl" => '\Phalcon\Mvc\View\Engine\Smarty'
+			".tpl" => '\Phalcon\Mvc\View\Engine\Smarty',
+			".html"=> '\Phalcon\Mvc\View\Engine\Smarty'
 		));
 		 return $view;
        });
