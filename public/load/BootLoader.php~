@@ -32,6 +32,15 @@ final class BootLoader
 		))->register();
 
        $this->di     = new \Phalcon\DI\FactoryDefault();
+<<<<<<< HEAD
+=======
+
+       $this->di->set('view', function(){
+	       $view = new \Phalcon\Mvc\View();
+	       $view->setViewsDir('../app/views/');
+	        return $view;
+       });
+>>>>>>> 8824750c4823c503c5ace997036007cec724ad38
        $this->di->set('db', function() {
            return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
                 "host" => $this->config->database->host,
@@ -46,12 +55,22 @@ final class BootLoader
 	        $view = new \Phalcon\Mvc\View();
 		require_once PUBLIC_DIR.'/plugins/Smarty/libs/Smarty.class.php';
 		$view->setViewsDir(HOME_DIR.'/app/views/');
+<<<<<<< HEAD
 		$view->registerEngines(array(
 			".tpl" => '\Phalcon\Mvc\View\Engine\Smarty'
 		));
 		 return $view;
        });
        $this->application = new \Phalcon\Mvc\Application();
+=======
+//		$view->registerEngines(array(
+//			".tpl" => '\Phalcon\Mvc\View\Engine\Smarty'
+//		));
+		 return $view;
+       });
+ 
+      $this->application = new \Phalcon\Mvc\Application();
+>>>>>>> 8824750c4823c503c5ace997036007cec724ad38
        $this->application->setDI($this->di);
 
        echo $this->application->handle()->getContent();
