@@ -9,7 +9,10 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
-       // if (!$this->request->isPost()) {
+	    $tpl='home_page';
+	    $this->view->pick($tpl);
+
+	    // if (!$this->request->isPost()) {
        //     $this->flash->notice('wo cheng gong le');
 	    // }
     }

@@ -45,9 +45,10 @@ final class BootLoader
        $this->di->set('view', function()  {
 	        $view = new \Phalcon\Mvc\View();
 		require_once PUBLIC_DIR.'/plugins/Smarty/libs/Smarty.class.php';
-		$view->setViewsDir(__DIR__.'/views/');
+		$view->setViewsDir(HOME_DIR.'/app/views/');
 		$view->registerEngines(array(
-			".tpl" => '\Phalcon\Mvc\View\Engine\Smarty'
+			".tpl" => '\Phalcon\Mvc\View\Engine\Smarty',
+			".html"=> '\Phalcon\Mvc\View\Engine\Smarty'
 		));
 		 return $view;
        });

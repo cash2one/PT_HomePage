@@ -5,15 +5,14 @@ class SessionController extends ControllerBase
 {
   public function initialize() 
   {
-      $this->view->setTemplateAfter('main');
       Tag::setTitle('Sign Up/Sign In');
       parent::initialize();
   }
 
   public function indexAction()
   {
-	  Tag::setDefault('user_name','chenqian09');
-	  Tag::setDefault('password','123456');
+	  $tpl='signin';
+	  $this->view->pick($tpl);
   }
 
   private function _registerSession($user)

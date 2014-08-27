@@ -14,7 +14,7 @@ final class BootLoader
 
     public function default_load()
     {
-       $this->config = new Phalcon\Config\Adapter\Ini(__DIR__.'/../../app/conf/config.ini');
+       $this->config = new Phalcon\Config\Adapter\Ini(HOME_DIR.'/app/conf/config.ini');
        $this->loader = new \Phalcon\Loader();
        $this->loader->registerDirs(
 	       array(
@@ -44,8 +44,8 @@ final class BootLoader
 
        $this->di->set('view', function()  {
 	        $view = new \Phalcon\Mvc\View();
-		require_once __DIR__ .'/../plugins/Smarty/libs/Smarty.class.php';
-		$view->setViewsDir(__DIR__.'/views/');
+		require_once PUBLIC_DIR.'/plugins/Smarty/libs/Smarty.class.php';
+		$view->setViewsDir(HOME_DIR.'/app/views/');
 		$view->registerEngines(array(
 			".tpl" => '\Phalcon\Mvc\View\Engine\Smarty'
 		));
