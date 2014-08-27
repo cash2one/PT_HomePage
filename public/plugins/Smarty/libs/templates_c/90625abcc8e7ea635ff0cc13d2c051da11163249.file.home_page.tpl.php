@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-08-26 19:09:02
+<?php /* Smarty version Smarty-3.1.18, created on 2014-08-27 15:34:15
          compiled from "/home/users/chenqian09/cq_work/PT_HomePage/app/views/home_page.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:23361782353fc5c93257f94-66585098%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '90625abcc8e7ea635ff0cc13d2c051da11163249' => 
     array (
       0 => '/home/users/chenqian09/cq_work/PT_HomePage/app/views/home_page.tpl',
-      1 => 1409051335,
+      1 => 1409124853,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <meta name="author" content="">
     <link rel="icon" href="./ico/favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>PT_HomePage</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./bootstrap/docs/dist/css/bootstrap.min.css" rel="stylesheet">

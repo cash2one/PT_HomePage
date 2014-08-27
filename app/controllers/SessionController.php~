@@ -24,11 +24,14 @@ class SessionController extends ControllerBase
   }
 
   public function loginAction()
-  {echo 2;exit;
+  {
+	  
+	    
 	  if($this->request->isPost())
-	  { 
+      {
+		  
           //Taking the variables sent by POST
-          $user_name = $this->request->getPost('user_name');
+          $user_name = $this->request->getPost('email');
           $password  = $this->request->getPost('password');
 
           $password = sha1($password);
@@ -39,12 +42,12 @@ class SessionController extends ControllerBase
               $this->_registerSession($user);
               $this->flash->success('Welcome '.$user->user_name);
               //Forward to the invoices controller if the user is valid
-               return $this->forward('session/index');
+              header('Location: http://'.$_SERVER['HTTP_HOST'].'/index');
+              exit;
 	  }
           $this->flash->error("Wrong user_name or password"); 
 	  }
-      //Forward to the login form again
-      return $this->foword('index/index');
+      header('Location: http://'.$_SERVER['HTTP_HOST'].'/session');
   }
 
   public function registerAction()

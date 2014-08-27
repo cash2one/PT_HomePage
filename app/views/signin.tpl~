@@ -1,25 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-08-27 14:44:24
-         compiled from "/home/users/chenqian09/cq_work/PT_HomePage/app/views/signin.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:212249660753fc6bc68802b7-69739272%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
-$_valid = $_smarty_tpl->decodeProperties(array (
-  'file_dependency' => 
-  array (
-    '4aeb5a2e69af496b2d29fed9cdaff7333bcfaa94' => 
-    array (
-      0 => '/home/users/chenqian09/cq_work/PT_HomePage/app/views/signin.tpl',
-      1 => 1409121861,
-      2 => 'file',
-    ),
-  ),
-  'nocache_hash' => '212249660753fc6bc68802b7-69739272',
-  'function' => 
-  array (
-  ),
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_53fc6bc68b0915_59932799',
-  'has_nocache_code' => false,
-),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_53fc6bc68b0915_59932799')) {function content_53fc6bc68b0915_59932799($_smarty_tpl) {?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -29,7 +8,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <meta name="author" content="">
     <link rel="icon" href="./ico/favicon.ico">
 
-    <title>Sign in</title>
+    <title>Signin Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -78,4 +57,3 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <script src="./bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
-<?php }} ?>

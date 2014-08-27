@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="./ico/favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Sign in</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,20 +31,27 @@
 
     <div class="container">
 
-      <form class="form-signin" role="form">
+      <form class="form-signin" method="post" action="/session/login" role="form">
         <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="email" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" required>
+        <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <!--input type="submit" value="submit" -->
+        <button class="btn btn-lg btn-primary btn-block"  type="submit">Sign in</button>
       </form>
 
     </div> <!-- /container -->
 
+     <!--div class="container">
+    <form class="form-signin" method="post" action="/session/login" role="form">
+     <input type="email" name="email">
+     <input type="submit" value="submit">
+    </form>
+</div-->
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
