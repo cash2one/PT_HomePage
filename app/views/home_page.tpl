@@ -59,6 +59,7 @@
                     <li><a href="#">Separated link</a></li>
                     <li><a href="#">One more separated link</a></li>
                   </ul>
+                    <!--button type="submit" class="btn btn-success">Sign in</button-->
                 </li>
               </ul>
             </div>

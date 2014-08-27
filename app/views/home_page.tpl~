@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="./ico/favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>PT_HomePage</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./bootstrap/docs/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -59,6 +59,7 @@
                     <li><a href="#">Separated link</a></li>
                     <li><a href="#">One more separated link</a></li>
                   </ul>
+                    <button type="submit" class="btn btn-success">Sign in</button>
                 </li>
               </ul>
             </div>
